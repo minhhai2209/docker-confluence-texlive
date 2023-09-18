@@ -1,4 +1,4 @@
-FROM atlassian/confluence-server:8.5.0
+FROM atlassian/confluence-server:8.5.1
 
 ARG DEBIAN_FRONTEND=noninteractive
 
