@@ -1,4 +1,4 @@
-FROM atlassian/confluence:8.9.1-jdk11
+FROM atlassian/confluence:8.9.1
 
 ARG DEBIAN_FRONTEND=noninteractive
 
