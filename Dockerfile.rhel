@@ -2,7 +2,6 @@ FROM atlassian/confluence:8.9.4-ubi9
 
 RUN microdnf update -y && \
     microdnf install -y config-manager && \
-    microdnf config-manager --set-enabled crb &&\
     curl -L -o /etc/yum.repos.d/miktex.repo https://miktex.org/download/fedora/34/miktex.repo && \
     microdnf update -y && \
     microdnf install -y miktex poppler-utils && \
