@@ -1,6 +1,8 @@
 FROM atlassian/confluence:8.9.4-ubi9
 
-RUN curl -L -o /etc/yum.repos.d/miktex.repo https://miktex.org/download/fedora/28/miktex.repo && \
+RUN microdnf update -y && \
+    microdnf install -y epel-release && \
+    curl -L -o /etc/yum.repos.d/miktex.repo https://miktex.org/download/fedora/28/miktex.repo && \
     microdnf update -y && \
     microdnf install -y miktex poppler-utils && \
     microdnf clean all
