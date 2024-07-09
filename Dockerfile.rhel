@@ -4,6 +4,9 @@ FROM atlassian/confluence:8.9.4-ubi9
 # Update existing packages
 RUN microdnf update -y
 
+# Install subscription-manager for managing repositories
+RUN microdnf install -y wget
+
 # Install EPEL release package
 RUN wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm && \
     microdnf install -y epel-release-latest-9.noarch.rpm && \
