@@ -19,7 +19,7 @@ RUN curl -L -o /etc/yum.repos.d/miktex.repo https://miktex.org/download/fedora/3
 RUN dnf update -y
 
 # Install MiKTeX and Poppler-Utils
-RUN dnf install -y miktex poppler-utils
+RUN dnf install -y qt5-qtbase miktex poppler-utils
 
 # Clean up all cached data to reduce the image size
 RUN dnf clean all
