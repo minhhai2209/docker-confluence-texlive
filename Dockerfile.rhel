@@ -5,19 +5,20 @@ FROM atlassian/confluence:8.9.4-ubi9
 RUN microdnf update -y
 
 # Install subscription-manager for managing repositories
-RUN microdnf install -y yum
+RUN microdnf install -y rpm dnf
 
 # Install EPEL release package using yum
-RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+RUN dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 
 # Add MiKTeX repository
+RUN rpm --import "https://miktex.org/download/key"
 RUN curl -L -o /etc/yum.repos.d/miktex.repo https://miktex.org/download/fedora/34/miktex.repo
 
 # Update again after adding new repositories
-RUN yum update -y
+RUN dnf update -y
 
 # Install MiKTeX and Poppler-Utils
-RUN yum install -y miktex poppler-utils
+RUN dnf install -y miktex poppler-utils
 
 # Clean up all cached data to reduce the image size
-RUN yum clean all
+RUN dnf clean all
